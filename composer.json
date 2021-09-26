@@ -1,0 +1,34 @@
+{
+    "name": "pudongping/global-pay",
+    "description": "简单易用的国际版支付 SDK",
+    "keywords": ["alipay", "global-pay", "pay"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "pudongping",
+            "email": "pudongping67@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Pudongping\\GlobalPay\\": "./src"
+        }
+    },
+    "require": {
+        "php": ">=7.1.3",
+        "ext-openssl": "*",
+        "ext-simplexml":"*",
+        "ext-libxml": "*",
+        "ext-json": "*",
+        "ext-bcmath": "*",
+        "guzzlehttp/guzzle": "^7.3",
+        "monolog/monolog": "^2.3",
+        "illuminate/support": "^8.55",
+        "symfony/http-foundation": "^4.0 || ^5.0.7",
+        "symfony/event-dispatcher": "^4.0 || ^5.0"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^5.3"
+    }
+}

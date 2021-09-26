@@ -1,0 +1,9 @@
+*.DS_Store
+/vendor
+/coverage
+sftp-config.json
+.subsplit
+.php_cs.cache
+.idea
+.vscode
+*.cache
