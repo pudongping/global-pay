@@ -1,7 +1,7 @@
 
 <h1 align="center">GlobalPay</h1>
 
-支持国际版支付的 PHP SDK，目前只支持支付宝国际版。因目前支付宝跨境在线支付服务只支持 app、wap、web 和报关这四种，本 SDK 提供了 app、wap、web 这三种跨境支付，[详见文档](https://global.alipay.com/docs/ac/legacy/legacydoc) 。
+支持国际版支付的 PHP SDK，目前**只支持支付宝国际版**。因目前支付宝跨境在线支付服务只支持 app、wap、web 和报关这四种，本 SDK 提供了 app、wap、web 这三种跨境支付，[详见文档](https://global.alipay.com/docs/ac/legacy/legacydoc) 。
 
 ## 特点
 
