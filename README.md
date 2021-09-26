@@ -3,6 +3,12 @@
 
 支持国际版支付的 PHP SDK，目前**只支持支付宝国际版**。因目前支付宝跨境在线支付服务只支持 app、wap、web 和报关这四种，本 SDK 提供了 app、wap、web 这三种跨境支付，[详见文档](https://global.alipay.com/docs/ac/legacy/legacydoc) 。
 
+## 安装
+
+```shell
+composer require pudongping/global-pay -vvv
+```
+
 ## 特点
 
 - 命名规范
@@ -74,12 +80,6 @@ refund_list.nper | 第几期
 refund_list.charge | 当前期数所需要支付的手续费
 refund_list.amount | 当前期数所需要支付的本金数
 refund_list.current_total_amount | 当前期数所需要支付的总费用
-
-## 安装
-
-```shell
-composer install pudongping/global-pay -vvv
-```
 
 ## 使用说明
 
