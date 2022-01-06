@@ -1,6 +1,7 @@
 <?php
 /**
  * document link： https://opendocs.alipay.com/mini/introduce/antcreditpay-istallment
+ * document link： https://opendocs.alipay.com/open/277/105952
  *
  * Created by PhpStorm
  * User: Alex
@@ -69,9 +70,9 @@ class HbFqCost
         $perAmount = floor(floatval(bcdiv($totalAmountCent, (string)$nper, 4)));  // 2. 计算每期本金（用总金额/总期数，结果以分表示，向下取整）
 
         // 用户每期手续费
-        $buyerTotalCost = round((float)bcmul($totalAmountCent, (string)$rate, 4), 2);  //  2. 用转化为分后的金额乘以买家费率，得到以分表示的买家总费用（总手续费）
+        $buyerTotalCost = (float)bcmul($totalAmountCent, (string)$rate, 4);  //  2. 用转化为分后的金额乘以买家费率，得到以分表示的买家总费用（总手续费）
         $roundTotalCost = round($buyerTotalCost, 0, PHP_ROUND_HALF_EVEN);  // 3. 对费用进行取整（取整规则为 ROUND_HALF_EVEN ）
-        $perCharge = floor(floatval(bcdiv((string)$roundTotalCost, (string)$nper)));  // 4. 计算每期费用（用总费用/总期数，结果以分表示，向下取整）
+        $perCharge = floor(floatval(bcdiv((string)$roundTotalCost, (string)$nper, 4)));  // 4. 计算每期费用（用总费用/总期数，结果以分表示，向下取整）
 
         // 用户每期总费用
         $perTotalAmount = bcadd((string)$perAmount, (string)$perCharge);
@@ -80,7 +81,7 @@ class HbFqCost
         $perAmountYuan = floatval(bcdiv((string)$perAmount, '100', 2));
         $perChargeYuan = floatval(bcdiv((string)$perCharge, '100', 2));
         $perTotalAmountYuan = floatval(bcdiv((string)$perTotalAmount, '100', 2));
-        $buyerTotalCostYuan = floatval(bcdiv((string)$buyerTotalCost, '100', 2));
+        $buyerTotalCostYuan = round(floatval(bcdiv((string)$buyerTotalCost, '100', 4)), 2);  // 花呗分期的总手续费实行“四舍五入”的原则进行计算
 
         $ret = [
             'nper' => $nper,  // 期数

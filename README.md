@@ -502,7 +502,7 @@ class HbfqPayController
 
 ## 致谢
 
-本仓库架构思想借鉴于 「 [yansongda/pay](https://github.com/yansongda/pay) ：可能是我用过的最优雅的 Alipay 和 WeChat 的支付 SDK 扩展包了。」，感谢贵包作者提供如此好用的 PHP 支付 SDK 扩展包！
+本仓库架构思想借鉴于 「 [yansongda/pay](https://github.com/yansongda/pay) 」，感谢贵包作者提供如此好用的 PHP 支付 SDK 扩展包！
 
 ## LICENSE
 MIT
