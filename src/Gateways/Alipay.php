@@ -14,7 +14,7 @@ namespace Pudongping\GlobalPay\Gateways;
 use Pudongping\GlobalPay\Supports\Encipher;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Pudongping\GlobalPay\Contracts\GatewayApplicationInterface;;
+use Pudongping\GlobalPay\Contracts\GatewayApplicationInterface;
 use Pudongping\GlobalPay\Contracts\GatewayInterface;
 use Pudongping\GlobalPay\Events;
 use Pudongping\GlobalPay\Exceptions\InvalidArgumentException;
@@ -50,7 +50,7 @@ class Alipay implements GatewayApplicationInterface
      */
     const MODE_DEV = 'dev';
 
-    const URL = [
+    public static $URL = [
         self::MODE_NORMAL => 'https://intlmapi.alipay.com/gateway.do',
         self::MODE_DEV => 'https://mapi.alipaydev.com/gateway.do',
     ];
@@ -268,11 +268,12 @@ class Alipay implements GatewayApplicationInterface
      * @param float $totalAmount  本金
      * @param bool $isShowAll  是否显示每一期的还款数
      * @param bool $isSellerPercent  是否商家承担所有的手续费
+     * @param array $customerRates  用户自定义分期费率
      * @return Collection
      */
-    public function getHbFqCost(float $totalAmount, bool $isShowAll = false, bool $isSellerPercent = false): Collection
+    public function getHbFqCost(float $totalAmount, bool $isShowAll = false, bool $isSellerPercent = false, array $customerRates = []): Collection
     {
-        $data = (new HbFqCost)->fetchHbFqCost($totalAmount, $isShowAll, $isSellerPercent);
+        $data = (new HbFqCost)->fetchHbFqCost($totalAmount, $isShowAll, $isSellerPercent, $customerRates);
         return new Collection($data);
     }
 

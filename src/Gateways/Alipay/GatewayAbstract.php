@@ -79,7 +79,7 @@ abstract class GatewayAbstract implements GatewayInterface
         }
 
         $hbFqNum = $payload['hb_fq_param']['num'];
-        if (! in_array((int)$hbFqNum, HbFqCost::VALIDATE_NPER)) {
+        if (! in_array((int)$hbFqNum, HbFqCost::$validateNper)) {
             throw new InvalidArgumentException('花呗分期参数 num 不合法');
         }
 
@@ -120,7 +120,7 @@ abstract class GatewayAbstract implements GatewayInterface
         }
 
         $hbFqNum = $payload['hb_fq_param']['num'];
-        if (! in_array((int)$hbFqNum, HbFqCost::VALIDATE_NPER)) {
+        if (! in_array((int)$hbFqNum, HbFqCost::$validateNper)) {
             throw new InvalidArgumentException('花呗分期参数 num 不合法');
         }
 

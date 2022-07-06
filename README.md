@@ -491,8 +491,24 @@ class HbfqPayController
         // $globalPay = GlobalPay::alipay($this->config)->getHbFqCost($totalAmount, true);
 
         // 获取 3 6 12 期相对应到还款数且显示出每一期的还款情况（商家承担所有的手续费）
-        $globalPay = GlobalPay::alipay($this->config)->getHbFqCost($totalAmount, true, true);
+        // $globalPay = GlobalPay::alipay($this->config)->getHbFqCost($totalAmount, true, true);
 
+        // 花呗分期计算费率，参见：https://opendocs.alipay.com/open/277/105952?ref=api
+        $customerRates = [
+            0 => [  // 用户承担手续费
+                3 => 0.023,
+                6 => 0.045,
+                12 => 0.075
+            ],
+            100 => [  // 商家承担手续费
+                3 => 0.018,
+                6 => 0.045,
+                12 => 0.075
+            ]
+        ];
+        // 允许自己传入花呗分期费率（支付宝做活动时，费率可能会有变化）
+        $globalPay = GlobalPay::alipay($this->config)->getHbFqCost($totalAmount, true, false, $customerRates);
+        
         var_dump($globalPay->toArray());
     }
 

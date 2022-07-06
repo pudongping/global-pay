@@ -18,8 +18,14 @@ class HbFqCost
 
     const USER_ASSUME = 0;  // 用户承担手续费
     const SELLER_ASSUME = 100;  // 商家承担手续费
-    const VALIDATE_NPER = [3, 6, 12];  // 花呗分期合法的分期数
 
+    public static $validateNper = [3, 6, 12];  // 花呗分期合法的分期数
+
+    /**
+     * 支付宝花呗分期，默认分期费率（如果支付宝做活动时，可能会有变化）
+     *
+     * @var \float[][]
+     */
     public static $rate = [
         self::USER_ASSUME => [
             3 => 0.023,
@@ -39,12 +45,14 @@ class HbFqCost
      * @param float $totalAmount  本金
      * @param bool $isShowAll  是否显示每一期的还款数
      * @param bool $isSellerPercent  是否商家承担所有的手续费
+     * @param array $customerRates  用户自定义分期费率
      * @return array
      */
-    public function fetchHbFqCost(float $totalAmount, bool $isShowAll = false, bool $isSellerPercent = false): array
+    public function fetchHbFqCost(float $totalAmount, bool $isShowAll = false, bool $isSellerPercent = false, array $customerRates = []): array
     {
         $assume = $isSellerPercent ? self::SELLER_ASSUME : self::USER_ASSUME;
-        $rates = self::$rate[$assume];
+        $realRates = $customerRates ?: self::$rate;  // 优先使用用户传入的动态分期费率
+        $rates = $realRates[$assume];
         $data = [];
 
         foreach ($rates as $nper => $rate) {

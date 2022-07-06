@@ -27,7 +27,7 @@ class Support
 
     private function __construct(Config $config)
     {
-        $this->baseUri = Alipay::URL[$config->get('mode', Alipay::MODE_NORMAL)];
+        $this->baseUri = Alipay::$URL[$config->get('mode', Alipay::MODE_NORMAL)];
         $this->config = $config;
     }
 
