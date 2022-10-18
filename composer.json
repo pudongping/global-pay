@@ -22,7 +22,7 @@
         "ext-libxml": "*",
         "ext-json": "*",
         "ext-bcmath": "*",
-        "guzzlehttp/guzzle": "^7.3",
+        "guzzlehttp/guzzle": "^6.3|^7.0",
         "monolog/monolog": "^2.3",
         "illuminate/support": "^8.55",
         "symfony/http-foundation": "^4.0 || ^5.0.7",
