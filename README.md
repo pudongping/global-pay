@@ -1,6 +1,17 @@
 
 <h1 align="center">GlobalPay</h1>
 
+<p align="center">
+
+[![Latest Stable Version](https://poser.pugx.org/pudongping/global-pay/v/stable.svg)](https://packagist.org/packages/pudongping/global-pay) 
+[![Total Downloads](https://poser.pugx.org/pudongping/global-pay/downloads.svg)](https://packagist.org/packages/pudongping/global-pay)
+[![Latest Unstable Version](https://poser.pugx.org/pudongping/global-pay/v/unstable.svg)](https://packagist.org/packages/pudongping/global-pay)
+[![Minimum PHP Version](http://img.shields.io/badge/php-%3E%3D%207.1.3-8892BF.svg)](https://php.net/)
+[![Packagist](https://img.shields.io/packagist/v/pudongping/global-pay.svg)](https://github.com/pudongping/global-pay)
+[![License](https://poser.pugx.org/pudongping/global-pay/license)](https://packagist.org/packages/pudongping/global-pay)
+
+</p>
+
 支持国际版支付的 PHP SDK，目前**只支持支付宝国际版**。因目前支付宝跨境在线支付服务只支持 app、wap、web 和报关这四种，本 SDK 提供了 app、wap、web 这三种跨境支付，[详见支付宝国际支付官方文档](https://global.alipay.com/docs/ac/legacy/legacydoc) 。
 
 > 创建本仓库的初衷主要在于，本人目前所在单位有跨境支付的需求，之前境内支付一直采用 [yansongda/pay](https://github.com/yansongda/pay) 扩展包，也习惯了这种调用方式，但由于贵包暂时不支持境外支付，因此只能撸起袖子自己写一个了。
