@@ -7,7 +7,8 @@
     "authors": [
         {
             "name": "pudongping",
-            "email": "pudongping67@gmail.com"
+            "email": "pudongping67@gmail.com",
+            "homepage": "https://github.com/pudongping"
         }
     ],
     "autoload": {
